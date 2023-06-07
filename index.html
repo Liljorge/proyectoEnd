@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinefilos de  Corazon</title>
+    <link rel="stylesheet" href="css/estilo01.css">
+    <script>
+
+        function borrarDatos() {
+            //Al cargar el index se borran los datos guardados anteriormente
+            localStorage.removeItem("usuarios");
+            localStorage.removeItem("sucursales")
+            
+
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Cinefilos de Corazon</h1>
+
+    <h2>Pagina Principal</h2>
+
+    <div>
+        <div class="item1"><button onclick="window.location.href = 'html/iniciosesion.html'">Iniciar Sesion</button></div>
+
+        <div class="item1"><button onclick="window.location.href = 'html/registro.html'">Registrarse</button></div>
+    </div>
+    <button onclick="borrarDatos()">Borrar Datos LocalStore</button>
+    
+    
+</body>
+</html>

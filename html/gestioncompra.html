@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../css/styleCompra.css">
+  <title>Gestión de Compra de Películas</title>
+</head>
+<body>
+  <h1>Gestión de Compra de Películas</h1>
+  
+  <form>
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" name="numero" required><br><br>
+    
+    <label for="sucursal">Sucursal:</label>
+    <select id="sucursal" name="sucursal" required>
+      <option value="Seleccionar">Seleccionar</option>
+      <option value="sucursal1">Sucursal 1</option>
+      <option value="sucursal2">Sucursal 2</option>
+      <option value="sucursal3">Sucursal 3</option></select><br><br>
+    
+    <label for="peliculas">Películas:</label>
+    <input type="text" id="peliculas" name="peliculas" required><br><br>
+    
+    <label for="cantidades">Cantidades:</label>
+    <input type="number" id="cantidades" name="cantidades" required><br><br>
+    
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" name="precio" required><br><br>
+    
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" name="fecha" required><br><br>
+    
+    <input type="button" value="Agregar" onclick="agregarPelicula()"><br><br>
+    
+    <table id="tablaPeliculas">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Subtotal</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3"></td>
+          <td><strong>Total:</strong></td>
+          <td id="total"></td>
+        </tr>
+      </tfoot>
+    </table>
+    
+    <input type="submit" value="Guardar">
+    <input type="button" value="Eliminar" onclick="eliminarPelicula()">
+  </form>
+  
+  <script>
+    var peliculas = []; 
+    
+    function agregarPelicula() {
+      var nombre = document.getElementById("peliculas").value;
+      var cantidad = document.getElementById("cantidades").value;
+      var precio = document.getElementById("precio").value;
+      var subtotal = cantidad * precio;
+      
+      peliculas.push({
+        nombre: nombre,
+        cantidad: cantidad,
+        precio: precio,
+        subtotal: subtotal
+      });
+      
+      actualizarTabla();
+      calcularTotal();
+    }
+    
+    function actualizarTabla() {
+      var tabla = document.getElementById("tablaPeliculas").getElementsByTagName('tbody')[0];
+      
+      // Eliminar filas existentes
+      while (tabla.firstChild) {
+        tabla.removeChild(tabla.firstChild);
+      }
+      
+      // Agregar filas actualizadas
+      for (var i = 0; i < peliculas.length; i++) {
+        var fila = tabla.insertRow();
+        
+        var columnaNombre = fila.insertCell(0);
+        columnaNombre.innerHTML = peliculas[i].nombre;
+        
+        var columnaCantidad = fila.insertCell(1);
+        columnaCantidad.innerHTML = peliculas[i].cantidad;
+        
+        var columnaPrecio = fila.insertCell(2);
+        columnaPrecio.innerHTML = peliculas[i].precio;
+        
+        var columnaSubtotal = fila.insertCell(3);
+        columnaSubtotal.innerHTML = peliculas[i].subtotal;
+        
+        var columnaAcciones = fila.insertCell(4);
+        columnaAcciones.innerHTML = '<input type="button" value="Editar" onclick="editarPelicula(' + i + ')">';
+      }
+    }
+    
+    function calcularTotal() {
+      var total = 0;
+      
+      for (var i = 0; i < peliculas.length; i++) {
+        total += peliculas[i].subtotal;
+      }
+      
+      document.getElementById("total").innerHTML = total;
+    }
+    
+    function editarPelicula(index) {
+      var pelicula = peliculas[index];
+      
+      document.getElementById("peliculas").value = pelicula.nombre;
+      document.getElementById("cantidades").value = pelicula.cantidad;
+      document.getElementById("precio").value = pelicula.precio;
+      
+      peliculas.splice(index, 1); // Eliminar la película del array
+      
+      actualizarTabla();
+      calcularTotal();
+    }
+    
+    function eliminarPelicula() {
+      peliculas = []; // Vaciar el array de películas
+      
+      actualizarTabla();
+      calcularTotal();
+    }
+  </script>
+</body>
+</html>

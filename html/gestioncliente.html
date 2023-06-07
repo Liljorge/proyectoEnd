@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinefilos de Corazon</title>
+    <link rel="stylesheet" href="../css/estiloRegistroCliente.css">
+</head>
+<body>
+
+    <h1>Cinefilos de Corazon</h1>
+   
+    <h2>Registro cliente</h2>
+
+    <form id="registroCliente">
+        <label for="identificacionCliente">Identificacion</label><br>
+        <input type="text" name="identificacionCliente" id="identificacionCliente" placeholder=" Digite su identifiacion" required><br>
+
+        <label for="usernameCustomer">Nombre Usuario</label><br>
+        <input type="text" name="usernameCustomer" id="usernameCustomer" placeholder="Digite su nombre de usuario" required><br>
+
+        <label for="nombresCliente">Nombres</label>
+        <input type="text" name="nombresCliente" id="nombresCliente" required placeholder="Digite sus nombres">
+
+        <label for="apellidosClientes">Apellidos</label>
+        <input type="text" name="apellidosClientes" id="apellidosClientes" required placeholder="Digite sus apellidos">
+
+        <label for="fechaNacimiento">Fecha de Nacimiento</label><br>
+        <input type="date" name="fechaNacimiento" id="fechaNacimiento" required><br>
+
+        <label for="direccionCliente">Direccion</label>
+        <input type="text" name="direccionCliente" id="direccionCliente" required placeholder="Calle, carrera y manzana">
+
+        <label for="barrioCliente">Barrio</label>
+        <select name="barrioCliente" id="barrioCliente">
+            <option value="Nuevo Majagual">Nuevo Majagual</option>
+            <option value="Las Delicias">Las Delicias</option>
+            <option value="Cruz de Mayo">Cruz de Mayo</option>
+        </select>
+
+        <label for="telefono">Numero de telefono</label>
+        <input type="number" name="telefono" id="telefono" required placeholder="Digite su telefono">
+
+        <label for="correo">Correo electronico</label>
+        <input type="email" name="correo" id="correo" required placeholder="Digite su correo electronico">
+
+        <label for="redesSociales">Redes sociales</label>
+        <select name="redesSociales" id="redesSociales">
+            <option value="facebook">Facebook</option>
+            <option value="Twitter">Twitter</option>
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">Tiktok</option>
+        </select>
+
+        <label for="passwordCustomer">Contraseña</label><br>
+        <input type="password" name="passwordCustomer" id="passwordCustomer" required><br>
+
+        <label for="repetirContraseña">Repetir contraseña</label><br>
+        <input type="password" name="repetirContraseña" id="repetirContraseña" required><br>
+
+        <span id="mensaje-error" style="color: red; display: none;">Las contraseñas no coinciden</span>
+
+        <input type="checkbox" name="terminos" id="terminos" required> Acepta los terminos y condiciones <br><br>
+
+        <button type="submit">Registrar</button><br><br>
+        <button onclick="window.location.href = 'iniciosesion.html'">Volver a inicio</button>
+    </form>
+
+    <script>
+   document.getElementById('registroCliente').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    var identificacion = document.getElementById('identificacionCliente').value;
+    var username = document.getElementById('usernameCustomer').value;
+    var nombres = document.getElementById('nombresCliente').value;
+    var apellidos = document.getElementById('apellidosClientes').value;
+    var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+    var direccion = document.getElementById('direccionCliente').value;
+    var barrio = document.getElementById('barrioCliente').value;
+    var telefono = document.getElementById('telefono').value;
+    var correo = document.getElementById('correo').value;
+    var redesSociales = document.getElementById('redesSociales').value;
+    var password = document.getElementById('passwordCustomer').value;
+    var repetirPassword = document.getElementById('repetirContraseña').value;
+
+    if (password !== repetirPassword) {
+        var mensajeError = document.getElementById('mensaje-error');
+        mensajeError.style.display = 'block';
+        return;
+    }
+
+    console.log('Identificación:', identificacion);
+    console.log('Nombre de usuario:', username);
+    console.log('Nombres:', nombres);
+    console.log('Apellidos:', apellidos);
+    console.log('Fecha de Nacimiento:', fechaNacimiento);
+    console.log('Dirección:', direccion);
+    console.log('Barrio:', barrio);
+    console.log('Teléfono:', telefono);
+    console.log('Correo electrónico:', correo);
+    console.log('Redes sociales:', redesSociales);
+    console.log('Contraseña:', password);
+
+    document.getElementById('registroCliente').reset();
+});
+    </script>
+</body>
+</html>

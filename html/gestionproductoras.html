@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulario</title>
+    <style>
+        body {
+            background-image: url("ruta/imagen-fondo.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            background-color: #fff;
+            color: #333;
+        }
+        
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="myForm">
+        <h1>Guardar Código</h1>
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" name="codigo" required>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" required>
+
+        <div id="telefonosExtra"></div>
+        <button type="button" onclick="agregarTelefono()">Agregar otro teléfono</button>
+
+        <label for="celular">Celular:</label>
+        <input type="text" id="celular" name="celular" required>
+
+        <div id="celularesExtra"></div>
+        <button type="button" onclick="agregarCelular()">Agregar otro celular</button>
+
+        <label for="pais">País:</label>
+        <select id="pais" name="pais" required>
+      <option value="opcion1">Opción 1</option>
+      <option value="opcion2">Opción 2</option>
+      <option value="opcion3">Opción 3</option>
+    </select>
+
+        <label for="representante">Representante:</label>
+        <input type="text" id="representante" name="representante" required>
+
+        <label for="correo">Correo Electrónico:</label>
+        <input type="text" id="correo" name="correo" required>
+
+        <input type="submit" value="Guardar">
+    </form>
+
+    <script>
+        function agregarTelefono() {
+            var telefonosExtra = document.getElementById("telefonosExtra");
+            var inputTelefono = document.createElement("input");
+            inputTelefono.type = "text";
+            inputTelefono.name = "telefonoExtra";
+            inputTelefono.placeholder = "Teléfono";
+            telefonosExtra.appendChild(inputTelefono);
+        }
+
+        function agregarCelular() {
+            var celularesExtra = document.getElementById("celularesExtra");
+            var inputCelular = document.createElement("input");
+            inputCelular.type = "text";
+            inputCelular.name = "celularExtra";
+            inputCelular.placeholder = "Celular";
+            celularesExtra.appendChild(inputCelular);
+        }
+
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var codigo = document.getElementById("codigo").value;
+            var nombre = document.getElementById("nombre").value;
+            var telefono = document.getElementById("telefono").value;
+            var celular = document.getElementById("celular").value;
+            var pais = document.getElementById("pais").value;
+            var representante = document.getElementById("representante").value;
+            var correo = document.getElementById("correo").value;
+
+            var telefonosExtra = document.getElementsByName("telefonoExtra");
+            var telefonos = [];
+            for (var i = 0; i < telefonosExtra.length; i++) {
+                telefonos.push(telefonosExtra[i].value);
+            }
+
+            var celularesExtra = document.getElementsByName("celularExtra");
+            var celulares = [];
+            for (var i = 0; i < celularesExtra.length; i++) {
+                celulares.push(celularesExtra[i].value);
+            }
+
+            // Imprimir los datos en la consola
+            console.log("Código: " + codigo);
+            console.log("Nombre: " + nombre);
+            console.log("Teléfono: " + telefono);
+            console.log("Teléfonos Extra: " + telefonos);
+            console.log("Celular: " + celular);
+            console.log("Celulares Extra: " + celulares);
+            console.log("País: " + pais);
+            console.log("Representante: " + representante);
+            console.log("Correo Electrónico: " + correo);
+
+            // Aquí puedes hacer lo que desees con los datos (por ejemplo, enviarlos a un servidor)
+
+            // Limpiar el formulario después de enviar los datos
+            document.getElementById("myForm").reset();
+            document.getElementById("telefonosExtra").innerHTML = "";
+            document.getElementById("celularesExtra").innerHTML = "";
+        });
+    </script>
+</body>
+
+</html>

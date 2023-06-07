@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gestión Cartelera</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    
+    h1 {
+      color: #ff9900;
+    }
+    
+    form {
+      width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      margin: 0 auto;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    input[type="text"],
+    select,
+    input[type="date"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #ff9900;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gestión Cartelera</h1>
+  
+  <form>
+    <label for="sala">Sala:</label>
+    <select id="sala" name="sala">
+        <option value="seleccionar">Seleccionar</option>
+      <option value="sala1">Sala 1</option>
+      <option value="sala2">Sala 2</option>
+      <option value="sala3">Sala 3</option>
+    </select>
+    
+    <label for="pelicula">Película:</label>
+    <input type="text" id="pelicula" name="pelicula">
+
+    <label for="horario">Horario:</label>
+    <input type="text" id="horario" name="horario">
+    
+    <label for="fechaInicio">Fecha de inicio:</label>
+    <input type="date" id="fechaInicio" name="fechaInicio">
+    
+    <label for="fechaFin">Fecha de fin:</label>
+    <input type="date" id="fechaFin" name="fechaFin">
+    
+    <button type="button" onclick="guardarRegistro()">Guardar</button>
+    <button type="button" onclick="limpiarCampos()">Limpiar</button>
+  </form>
+  
+  <table id="registros">
+    <thead>
+      <tr>
+        <th>Sala</th>
+        <th>Horario</th>
+        <th>Película</th>
+        <th>Fecha de inicio</th>
+        <th>Fecha de fin</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+  
+  <script>
+    function guardarRegistro() {
+      var sala = document.getElementById("sala").value;
+      var horario = document.getElementById("horario").value;
+      var pelicula = document.getElementById("pelicula").value;
+      var fechaInicio = document.getElementById("fechaInicio").value;
+      var fechaFin = document.getElementById("fechaFin").value;
+      
+      var tabla = document.getElementById("registros").getElementsByTagName('tbody')[0];
+      var fila = tabla.insertRow();
+      var celdaSala = fila.insertCell(0);
+      var celdaHorario = fila.insertCell(1);
+      var celdaPelicula = fila.insertCell(2);
+      var celdaFechaInicio = fila.insertCell(3);
+      var celdaFechaFin = fila.insertCell(4);
+      
+      celdaSala.innerHTML = sala;
+      celdaHorario.innerHTML = horario;
+      celdaPelicula.innerHTML = pelicula;
+      celdaFechaInicio.innerHTML = fechaInicio;
+      celdaFechaFin.innerHTML = fechaFin;
+    }
+    function limpiarCampos() {
+      document.getElementById("sala").value = "";
+      document.getElementById("horario").value = "";
+      document.getElementById("pelicula").value = "";
+      document.getElementById("fechaInicio").value = "";
+      document.getElementById("fechaFin").value = "";
+    }
+  </script>
+</body>
+</html>

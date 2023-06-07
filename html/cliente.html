@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../css/styleCliente.css">
+  <title>Cliente</title>
+</head>
+<body>
+  <h1>Cliente</h1>
+
+  <label for="nombre">Nombre:</label>
+  <span id="nombre">Nombre del Cliente</span>
+
+  <button onclick="gestionarTickets()">Gestion de ventas de tiquetes</button>
+  <button onclick="verPromociones()">Cartelera</button>
+
+  <script>
+    function gestionarTickets() {
+      window.location.href = "gestion_de_ventas_de_tickets.html";
+    }
+
+    function verPromociones() {
+      window.location.href = "cartelera.html";
+    }
+  </script>
+</body>
+</html>

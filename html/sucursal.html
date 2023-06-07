@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinefilos de Corazon</title>
+    <link rel="stylesheet" href="../css/estilo3.css">
+    <script src="../js/sucursal.js"></script>
+    <script src="../js/registrarSucursal.js"></script>
+</head>
+<body>
+
+    <h1>Cinefilos de Corazon</h1>
+
+    <h2>Sucursales</h2>
+
+    <form action="javascript:adicionarSucursal()">
+        <table style="width: 80%; margin: auto;">
+            <tr>
+                <th>
+                    <label for="">Codigo</label><br>
+                    <input type="text" name="" id="codigo">
+                </th>
+                <th>
+                    <label for="">Gerente encargado</label><br>
+                    <input type="text" name="" id="gerenteEncargado">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <label for="">Direccion</label><br>
+                    <input type="text" name="" id="direccion">
+                </th>
+                <th>
+                    <label for="">Numero de salas</label><br>
+                    <input type="number" name="" id="numeroSalas">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <label for="">Departamento</label><br>
+                    <select name="" id="departamento">
+                        <option value="">Seleccione</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                    </select>
+                </th>
+                <th>
+                    <label for="">Numero de trabajadores</label><br>
+                    <input type="number" name="" id="numeroTrabajadores">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <label for="">Ciudad</label><br>
+                    <select name="" id="ciudad">
+                        <option value="">Seleccione</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                    </select>
+                </th>
+                <th>
+                    <label for="">Posee Cafeteria?</label><br>
+                    <select name="" id="cafeteria">
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <label for="">Barrio</label><br>
+                    <select name="" id="barrio">
+                        <option value="">Select</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                    </select>
+                </th>
+                <th></th>
+            </tr>
+            <tr>
+                <th colspan="2"><button type="submit">Guardar</button></th>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+</html>

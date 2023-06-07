@@ -1,0 +1,43 @@
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="number"] {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+input[type="checkbox"] {
+    float: left;
+    margin-right: 5px;
+}
+  
+
+h1, h2{
+    text-align: center;
+}
+
+select{
+    width: 84%;
+    padding: 8px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+button[type="submit"] {
+    width: 20%;
+    padding: 10px;
+    background-color: #f00a0a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    
+}
